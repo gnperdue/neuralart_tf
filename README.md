@@ -1,3 +1,8 @@
+# README
+
+This is a re-working of the code found [here](https://github.com/ckmarkoh/neuralart_tensorflow), set up to use Docker and Jupyter notebooks.
+
+## Docker
 
     . start-docker-osx.sh
 
