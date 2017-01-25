@@ -1,1 +1,7 @@
 .ropeproject/
+
+# large data files
+imagenet-vgg-verydeep-19.mat
+
+# images directory
+images
