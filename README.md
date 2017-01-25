@@ -2,33 +2,44 @@
 
 This is a re-working of the code found [here](https://github.com/ckmarkoh/neuralart_tensorflow), set up to use Docker and Jupyter notebooks.
 
+## TensorFlow
+
+This repository uses [TensorFlow](https://www.tensorflow.org) to model artistic
+style transfer. TensorFlow is fairly simple to install, but if you don't wish
+to install it directly on your system, you may run it using containers.
+
 ## Docker
 
-    . start-docker-osx.sh
+To get started for the first time, install [Docker](https://www.docker.com).
+Then, create a _docker-machine_. If you haven't done this before, and you are
+working on OSX, you can try to use the `start-docker-osx.sh` script:
 
-Once the Docker machine exists, we can instead start with
+    $ source start-docker-osx.sh
 
-    docker-machine start neuralart
-    eval "$(docker-machine env neuralart)"
+Once the Docker machine exists (here, named 'neuralart'), we can instead start
+with
 
-To build a Docker image, use
+    $ docker-machine start neuralart
+    $ eval "$(docker-machine env neuralart)"
 
-    docker build -t <your dockerhub name>/tfjupyter:0.1 .
-    docker build -t <your dockerhub name>/tfjupyter:latest .
+To build a Docker image with the Dockerfile in this repository, use
 
-Or, get a pre-build image
+    $ docker build -t <your dockerhub name>/tfjupyter:<version number> .
+    $ docker build -t <your dockerhub name>/tfjupyter:latest .
 
-    docker pull gnperdue/tfjupyter
+Or, get a pre-built image
+
+    $ docker pull gnperdue/tfjupyter
 
 To check the IP address where the Docker machine is running:
 
-    docker-machine url neuralart | \
-        perl -ne '@l=split(":");print split("/",@l[1]);print "\n";'
+    $ docker-machine url neuralart | \
+    >     perl -ne '@l=split(":");print split("/",@l[1]);print "\n";'
 
 Forward port 8888 to 5000, locally mount `$PWD` to the `notebooks` directory
 in the Docker container:
 
-    docker run -p 5000:8888 -v $PWD:/notebooks -it --rm gnperdue/tfjupyter
+    $ docker run -p 5000:8888 -v $PWD:/notebooks -it --rm gnperdue/tfjupyter
 
 Now, direct your browser to the IP address returned by `docker-machine` earlier
 and set the port to 5000, e.g.
@@ -37,4 +48,4 @@ and set the port to 5000, e.g.
 
 To stop, use
 
-    docker-machine stop neuralart
+    $ docker-machine stop neuralart
