@@ -14,7 +14,8 @@ RUN  \
   matplotlib \
   numpy \
   scipy \
-  sklearn \
+  scikit-learn \
+  scikit-image \
   && \
   python3 -m ipykernel.kernelspec
 
