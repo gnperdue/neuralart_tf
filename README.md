@@ -16,6 +16,10 @@ working on OSX, you can try to use the `start-docker-osx.sh` script:
 
     $ source start-docker-osx.sh
 
+Note that this script was developed for use with
+[Docker Toolbox](https://www.docker.com/products/docker-toolbox) and may not
+work with the latest versions of Docker for OSX.
+
 Once the Docker machine exists (here, named 'neuralart'), we can instead start
 with
 
@@ -27,7 +31,12 @@ To build a Docker image with the Dockerfile in this repository, use
     $ docker build -t <your dockerhub name>/tfjupyter:<version number> .
     $ docker build -t <your dockerhub name>/tfjupyter:latest .
 
-Or, get a pre-built image
+You may push your image to [DockerHub](https://hub.docker.com) with
+
+    $ docker push <your dockerhub name>/tfjupyter:<version number>
+
+once you have an account there. You may retrieve a pre-built image 
+anonymously
 
     $ docker pull gnperdue/tfjupyter
 
