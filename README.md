@@ -50,6 +50,8 @@ in the Docker container:
 
     $ docker run -p 5000:8888 -v $PWD:/notebooks -it --rm gnperdue/tfjupyter
 
+(Or, instead of `gnperdue`, use your DockerHub username.)
+
 Now, direct your browser to the IP address returned by `docker-machine` earlier
 and set the port to 5000, e.g.
 
