@@ -24,6 +24,10 @@ Once the Docker machine exists (here, named 'neuralart'), we can instead start
 with
 
     $ docker-machine start neuralart
+
+When the machine is running, use the following to set environment variables 
+appropriately:
+
     $ eval "$(docker-machine env neuralart)"
 
 To build a Docker image with the Dockerfile in this repository, use
